@@ -13,26 +13,26 @@
         "src/query.cc",
         "src/tree.cc",
         "src/tree_cursor.cc",
-        "src/util.cc"
+        "src/util.cc",
       ],
       "include_dirs": [
         "vendor/tree-sitter/lib/include",
         "vendor/superstring",
-        "<!(node -e \"require('nan')\")",        
-      ],      
+        "<!(node -e \"require('nan')\")",
+      ],
       "cflags_cc": ["-std=c++17"],
       "xcode_settings": {
         "MACOSX_DEPLOYMENT_TARGET": "10.7",
-        "OTHER_CPLUSPLUSFLAGS": ["-std=c++17", "-stdlib=libc++"]
+        "OTHER_CPLUSPLUSFLAGS": ["-std=c++17", "-stdlib=libc++"],
       },
       "msvs_settings": {
         "VCCLCompilerTool": {
           "AdditionalOptions": [
-            "/std:c++17"
+            "/std:c++17",
           ],
-          "RuntimeLibrary": 0
-        }
-      }
+          "RuntimeLibrary": 0,
+        },
+      },
     },
     {
       "target_name": "tree_sitter",
@@ -47,11 +47,11 @@
       "cflags": [
         "-std=c99"
       ]
-    }    
+    }
   ],
-  "variables": {
-    "runtime%": "node",
-    "openssl_fips": ""
+  'variables': {
+    'runtime%': 'node',
+    'openssl_fips': '',
   },
   'conditions': [
       ['runtime=="electron"', { 'defines': ['NODE_RUNTIME_ELECTRON=1'] }],
