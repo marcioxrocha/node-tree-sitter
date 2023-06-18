@@ -1,0 +1,42 @@
+{
+  "name": "@curlconverter/tree-sitter",
+  "version": "0.0.10",
+  "description": "fork of incremental parsers for node with Node 19+ support",
+  "author": "Max Brunsfeld",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/curlconverter/node-tree-sitter.git"
+  },
+  "keywords": [
+    "parser",
+    "lexer"
+  ],
+  "main": "index.js",
+  "types": "tree-sitter.d.ts",
+  "dependencies": {
+    "nan": "^2.17.0",
+    "prebuild-install": "^7.1.1"
+  },
+  "devDependencies": {
+    "@types/node": "^18.15.13",
+    "chai": "^4.3.7",
+    "mocha": "^10.2.0",
+    "node-gyp": "^9.3.1",
+    "prebuild": "^11.0.4",
+    "@curlconverter/superstring": "^0.0.3",
+    "tree-sitter-javascript": "https://github.com/tree-sitter/tree-sitter-javascript.git#master"
+  },
+  "overrides": {
+    "prebuild": {
+      "node-gyp": "$node-gyp"
+    }
+  },
+  "scripts": {
+    "install": "prebuild-install || node-gyp rebuild",
+    "build": "node-gyp build",
+    "prebuild": "prebuild -r electron -t 11.0.0 -t 12.0.0 -t 13.0.0 -t 14.0.0 -t 15.0.0 -t 16.0.0 -t 17.0.0 -t 18.0.0 -t 19.0.0 -t 20.0.0 -t 21.0.0 -t 22.0.0 -t 23.0.0 --strip && prebuild -t 10.0.0 -t 12.0.0 -t 14.0.0 -t 16.0.0 -t 18.0.0 --strip",
+    "prebuild:upload": "prebuild --upload-all",
+    "test": "mocha"
+  }
+}
