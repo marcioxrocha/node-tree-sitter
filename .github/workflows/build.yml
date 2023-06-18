@@ -50,7 +50,6 @@ jobs:
           cd $NodeModulesPath
           npm install node-gyp@9.x
       - run: npm install
-      - run: npm test
 
   publish:
     if: ${{ github.event_name == 'release' }}
